@@ -12,27 +12,8 @@ OCR systems typically have two stages. The first stage, document analysis, finds
 
 The data in this assignment comes from pages of books. The test data has been artificially corrupted, i.e. random offsets have been added to the pixel values to simulate the effect of a poor quality image.
 
-## 3. The task
 
-Your task is to design a classifier that:
-
-1. uses a feature vector containing no more than 10 dimensions;
-2. operates robustly even on low quality, `noisy' image data.
-
-## 4. What you are given
-
-You have been given data for training and testing your systems and some code to get you started.
-
-### 4.1. The data
-
-The data is stored in a subfolder named `data` and is split into data for training and data for evaluation. The data comes from pages from novels.  There are 10 pages for training and 6 pages for testing. The testing pages have progressive amounts of noise added to them, i.e.,test page 1 is the best quality and test page 6 is the poorest quality. For each page there are three files.
-
-1. a `png` format image file containing an image of the page. You should be able to view these files in any standard image viewing software.
-2. a file ending in the extension `.bb.csv`. This is a comma-separated variable file giving the bounding box coordinates of each successive character on the page. Each line represents the position of a single character.
-3. a `label.txt` file giving the correct ASCII label for each character on the page. There is a direct correspondence between the lines in the `.bb.csv` file and the `.label.txt` file.
-
-
-### 5. Test the code provided
+### 3. Test the code provided
 
 Check that you can run the code provided. Open a terminal in CoCalc. Navigate to the directory containing the assignment code,
 
@@ -48,7 +29,7 @@ Then run the evaluation step,
 
 The code should print out the percentage of correctly classified characters for each page. The dummy code will produce results in the range 3\% to 5\% correct for each page.
 
-### 6. Processing the training data
+### 4. Processing the training data
 
 The function `process_training_data` in `system.py` processes the training data and returns results in a dictionary called `model_data`. The program `train.py` calls `process_training_data` and saves the resulting `model_data` dictionary to the file `model.json.gz`. This file is then used by the classifier when `evaluate.py` is called. So, any data that your classifier needs must go into this dictionary. For example, if you are using a nearest neighbour classifier then the dictionary must contain the feature vectors and labels for the complete training set. If you are using a parametric classifier then the dictionary must contain the classifier's parameters. The function is currently written with a nearest neighbour classifier in mind. Read it carefully and understand how to adapt it for your chosen approach.
 
