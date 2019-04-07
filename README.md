@@ -27,8 +27,6 @@ Then run the evaluation step,
 
 `python3 evaluate.py dev`
 
-The code should print out the percentage of correctly classified characters for each page. The dummy code will produce results in the range 3\% to 5\% correct for each page.
-
 ### 4. Processing the training data
 
 The function `process_training_data` in `system.py` processes the training data and returns results in a dictionary called `model_data`. The program `train.py` calls `process_training_data` and saves the resulting `model_data` dictionary to the file `model.json.gz`. This file is then used by the classifier when `evaluate.py` is called. So, any data that your classifier needs must go into this dictionary. For example, if you are using a nearest neighbour classifier then the dictionary must contain the feature vectors and labels for the complete training set. If you are using a parametric classifier then the dictionary must contain the classifier's parameters. The function is currently written with a nearest neighbour classifier in mind. Read it carefully and understand how to adapt it for your chosen approach.
